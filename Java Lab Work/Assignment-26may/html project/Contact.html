@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+
+  height: 100%;
+  width: 960px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-family:Time new roman;
+}
+.button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family:Time new roman;
+}
+</style>
+</head>
+<body background="bg.jpg"  width="100px" height="100px">
+<h1> <center> <img src="logo.png"></h1>
+<div class="topnav">
+  <a class="active" href="Home.html">Home</a>
+  <a href="myform.html">Login</a>
+  <a href="table.html">Students Detail</a>
+  <a href="contact.html">Contact Us</a>
+</div> <br>
+<br>
+<br>
+
+
+<form class="w3-container w3-card w3-padding-32 w3-white" action="/action_page.php" target="_blank" align="center">
+        <div class="w3-section">
+          <label>Name: </label>
+          <input type="text" required name="Name"> 
+        </div> <br>
+
+        <div class="w3-section">
+          <label>Email:</label>
+          <input type="text" required name="Email"> 
+        </div> <br>
+
+        <div class="w3-section">
+          <label>Message:</label> <br>
+
+          <textarea required name="Message"rows=10 cols=20> </textarea> 
+        </div> <br>
+
+        <button type="submit" class="w3-button w3-teal w3-right"> Send </button>
+      </form>
+<footer>
+	<p>Copyright &copy; 2022 The Students Resume.com</p>
+</footer>
+
+</body>
+</html>
