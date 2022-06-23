@@ -1,0 +1,17 @@
+package AreaOfRectangle;
+
+import java.util.Scanner;
+
+public class Rectangle_main {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Length of Rectangle:");
+		int l=sc.nextInt();
+		System.out.println("Enter Breadth of Rectangle:");
+		int b=sc.nextInt();
+		Rectangle r=new Rectangle(l,b);
+	}
+
+}
