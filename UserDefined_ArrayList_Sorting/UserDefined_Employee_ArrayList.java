@@ -1,13 +1,29 @@
 
 public class UserDefined_Employee_ArrayList implements Comparable
 {
-	int salary;
-	String emp_name;
+	private int salary;
+	private String emp_name;
 	
 	public UserDefined_Employee_ArrayList(String name,int sal)
 	{
-		this.emp_name=name;
-		this.salary=sal;
+		setEmp_name(name);
+		setSalary(sal);
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public String getEmp_name() {
+		return emp_name;
+	}
+
+	public void setEmp_name(String emp_name) {
+		this.emp_name = emp_name;
 	}
 
 	@Override
@@ -22,7 +38,7 @@ public class UserDefined_Employee_ArrayList implements Comparable
 	}
 	@Override 
 	public String toString() {
-		return "BookSortingUsingCompareTo [Employee Name=" + emp_name + ", Salary=" + salary+ "]";
+		return "BookSortingUsingCompareTo [Employee Name=" + getEmp_name() + ", Salary=" + getSalary()+ "]";
 	}
 	
 }

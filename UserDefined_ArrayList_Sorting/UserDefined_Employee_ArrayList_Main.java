@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 public class UserDefined_Employee_ArrayList_Main 
 {
-	void userInput(ArrayList<UserDefined_Employee_ArrayList> a)
+	void userInput(ArrayList<UserDefined_Employee_ArrayList> a)throws Deficient_Employees_Exception
 	{
 		Scanner sc=new Scanner(System.in);
 		Scanner s=new Scanner(System.in);
@@ -19,7 +19,7 @@ public class UserDefined_Employee_ArrayList_Main
 		String choice=s.nextLine();
 		choice(choice,a);
 	}
-	void sortingEmployees(ArrayList<UserDefined_Employee_ArrayList> a)
+	void sortingEmployees(ArrayList<UserDefined_Employee_ArrayList> a)throws Deficient_Employees_Exception
 	{
 		Scanner s=new Scanner(System.in);
 		if(a.size()>1)
@@ -35,7 +35,7 @@ public class UserDefined_Employee_ArrayList_Main
 		while(i.hasNext())
 		{
 			UserDefined_Employee_ArrayList a1=(UserDefined_Employee_ArrayList)i.next();
-			System.out.println(a1.emp_name+ " " +a1.salary);
+			System.out.println(a1.getEmp_name()+ " " +a1.getSalary());
 		}
 		}
 		else
@@ -45,7 +45,7 @@ public class UserDefined_Employee_ArrayList_Main
 			String choice=s.nextLine();
 			if(choiceAfterCheckingArrayListSize(choice,a)==0)
 			{
-				System.out.println("SORRY!! We can't compare ony one employee's data");
+				throw new Deficient_Employees_Exception();
 			}
 			else
 			{
@@ -53,7 +53,7 @@ public class UserDefined_Employee_ArrayList_Main
 			}
 		}
 		}
-		void choice(String choice,ArrayList<UserDefined_Employee_ArrayList> a)
+		void choice(String choice,ArrayList<UserDefined_Employee_ArrayList> a)throws Deficient_Employees_Exception
 		{
 			if(choice.equalsIgnoreCase("Yes") || choice.equalsIgnoreCase("Y"))
 			{
@@ -64,7 +64,7 @@ public class UserDefined_Employee_ArrayList_Main
 				sortingEmployees(a);
 			}
 		}
-		int choiceAfterCheckingArrayListSize(String choice,ArrayList<UserDefined_Employee_ArrayList> a)
+		int choiceAfterCheckingArrayListSize(String choice,ArrayList<UserDefined_Employee_ArrayList> a)throws Deficient_Employees_Exception
 		{
 			if(choice.equalsIgnoreCase("Yes") || choice.equalsIgnoreCase("Y"))
 			{
@@ -76,8 +76,15 @@ public class UserDefined_Employee_ArrayList_Main
 	
 	public static void main(String[] args) 
 	{
+		try
+		{
 		UserDefined_Employee_ArrayList_Main b=new UserDefined_Employee_ArrayList_Main();
 		ArrayList<UserDefined_Employee_ArrayList> a=new ArrayList<UserDefined_Employee_ArrayList>();
 		b.userInput(a);
+		}
+		catch(Deficient_Employees_Exception e)
+		{
+			System.out.println("Exception Handled");
+		}
 	}
 }
