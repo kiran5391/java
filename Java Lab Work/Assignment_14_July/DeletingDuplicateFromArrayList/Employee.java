@@ -1,5 +1,6 @@
+import java.util.Objects;
 
-public class Employee implements Comparable
+public class Employee
 {
 	private int emp_id;
 	private int salary;
@@ -52,15 +53,18 @@ public class Employee implements Comparable
 	}
 
 	@Override
-	public int compareTo(Object o) {
-		Employee e=(Employee)o;
-		
-		String s1=this.emp_name;		
-		String s2 = e.emp_name;
-		if(s1 == s2 ) 
-			return 0;
-		else 
-			return (s1.compareTo(s2));
+	public int hashCode() {
+		return Objects.hash(dept, emp_name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Employee))
+			return false;
+		Employee other = (Employee) obj;
+		return Objects.equals(dept, other.dept) && Objects.equals(emp_name, other.emp_name);
 	}
 	
 

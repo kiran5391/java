@@ -1,27 +1,51 @@
 import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
 public class DeletingDuplicateEmployee 
 {
 	public static void main(String args[])
-	{
-		Employee e1=new Employee(101,"Kiran","sales",50000);
-		Employee e2=new Employee(102,"Afsha","marketing",42000);
-		Employee e3=new Employee(104,"Neha","production",45000);
-		Employee e4=new Employee(105,"Anjali","accounts",60000);
-		Employee e5=new Employee(106,"Anjali","accounts",45000);
-		
-		ArrayList<Employee> al=new ArrayList<Employee>();
-		al.add(e1);
-		al.add(e2);
-		al.add(e3);
-		al.add(e4);
-		al.add(e5);
-		
-		TreeSet<Employee> ts=new TreeSet<Employee>();
-		ts.addAll(al);
-		for(Employee e:ts)
+	{	
+		try
 		{
-		System.out.println(e);
-	}
+		ArrayList<Employee> a=new ArrayList<Employee>();
+		int choice;
+		do
+		{
+		Scanner sc=new Scanner(System.in);
+		Scanner s=new Scanner(System.in);
+		System.out.print("Id: ");
+		int id=sc.nextInt();
+		System.out.print("Name: ");
+		String name=s.nextLine();
+		System.out.print("Department: ");
+		String dept=s.nextLine();
+		System.out.print("Salary: ");
+		int sal=sc.nextInt();
+		Employee e1=new Employee(id,name,dept,sal);
+		a.add(e1);
+		System.out.println("Enter 1 to enter more employees ");
+		System.out.println("Enter 0 to exit ");
+		choice=s.nextInt();
+		if(choice==0)
+		{
+			System.out.println("Thankyou!! ");
+		}
+		else if(choice!=1)
+		{
+			throw new InvalidExcepion();
+		}
+		}while(choice==1);
+		
+		HashSet<Employee> ts=new HashSet<Employee>(a);
+		Iterator<Employee> itr=ts.iterator();
+		while(itr.hasNext())
+		{
+		System.out.println(itr.next());
+		}
+		}
+		catch(InvalidExcepion e)
+		{
+		}
 	}
 }
