@@ -1,0 +1,57 @@
+Write MySql query to implement below mwntioned operation :
+
+
+a: Creata a Employee Student with name , id as Primary Key and Not null , dept and salary
+	
+Query:-     CREATE TABLE `kiran`.`employee` (
+ 		 `Emp_id` INT NOT NULL,
+ 		 `Emp_name` CHAR(50) NOT NULL,
+ 		 `Department` CHAR(50) NOT NULL,
+ 		 `Salary` DECIMAL(12,2) NOT NULL,
+		  PRIMARY KEY (`Emp_id`));
+
+b:Insert 4 different set of data using a single query 
+		
+Query:-     insert into kiran.employee 
+		values(101,"Kiran","Accounts",45000),
+		(102,"Afsha","Finance",40000),
+		(103,	"Pooja","Marketing",30000),	
+		(104,"Neha","Finance",35000);
+
+Table Created:-			101	Kiran	Accounts	45000.00
+				102	Afsha	Finance	40000.00
+				103	Pooja	Marketing	30000.00
+				104	Neha	Finance	35000.00
+			
+
+c: Select all the salary along with the employee name
+		
+Query:-     Select Emp_name,Salary from employee;
+
+Output:- 			Kiran	45000.00
+				Afsha	40000.00
+				Pooja	30000.00
+				Neha	35000.00
+
+d:change all the Accounts dept to Finance dept
+		
+Query:-     update employee set department="Finance" where department="Accounts";
+
+Output:- 			101	Kiran	Finance	45000.00
+				102	Afsha	Finance	40000.00
+				103	Pooja	Marketing	30000.00
+				104	Neha	Finance	35000.00
+			
+
+
+e:delete the data who is having empid = 101	
+	
+Query:-     delete from employee where emp_id=101;
+
+Output:-			102	Afsha	Finance	40000.00
+				103	Pooja	Marketing	30000.00
+				104	Neha	Finance	35000.00
+			
+
+
+
