@@ -1,0 +1,16 @@
+Question 1:-  Assume there is a Employee table having multiple data and one the column name is department.Write a query to fetch the number of employees working in the department ‘HR’.
+
+Query:--		select department,count(*) FROM employee where department="HR";
+
+Output:--		department		count(*)
+			HR			2
+
+
+
+Question 2:-  Assume there is a Employee table having multiple data and one the column name is fname.Write a query to find the firstnames of employees that begin with ‘S’.
+
+Query:--		select * from lab.employee where f_name like 'S%';
+
+Output:--		emp_id	f_name	l_name	Department	Salary
+			106		Soukhya	Kuchekar	Finance	60000.00
+				
