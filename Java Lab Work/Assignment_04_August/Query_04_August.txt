@@ -1,0 +1,22 @@
+Question:-			Write an SQL query to fetch employee names having a salary greater than or equal to 5000 and less than or equal to 10000.
+
+
+Query:-			select Emp_name from kiran.employee where salary>=5000 AND salary<=10000 ;
+
+Output:-			Emp_name
+				snehal Kokekar
+				Rishab Luthra
+				John
+
+
+Question:-			Write an SQL query to fetch the employees whose name begins with any two characters, followed by a text “hn” and ending with any sequence of characters
+
+
+
+Query:-			select * from kiran.employee where Emp_name like '__hn%';
+
+
+				
+Output:-			Emp_id	Emp_name	Department	Salary
+				113		John		Finance	10000.00
+			
