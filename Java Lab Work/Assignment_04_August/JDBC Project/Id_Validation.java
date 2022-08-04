@@ -2,27 +2,27 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
-public class Data_Fetch 
+public class Id_Validation 
 {
-	void fetching_Data()
+	int count;
+	int validate(int id)
 	{
+		Scanner sc=new Scanner(System.in);
 		Util d=new Util();
 		Connection con= d.driverLoading();
 		String select="select * from lab.Students;";
 		PreparedStatement pstmt=null;
+		int i = 0;
 		try
 		{
 			pstmt=con.prepareStatement(select);
 			ResultSet result=pstmt.executeQuery(select);
 			while(result.next())
 			{
-				int id=result.getInt(1);
-				String fn=result.getString(2);
-				String ln=result.getString(3);
-				String sub=result.getString(4);
-				int m=result.getInt(5);
-				System.out.println(id+" "+fn+" "+ln+" "+sub+" "+m);
+				int did=result.getInt(1);
+				i= val(sc, did, id);
 			}
 		}
 		catch( SQLException e)
@@ -41,6 +41,24 @@ public class Data_Fetch
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			
+		}
+		return i;
+	}
+
+	public int val(Scanner sc, int did, int id) {
+		
+		if(id==did)
+		{
+			System.out.println("This id already exixts!!");
+			System.out.println("Please enter unique id: ");
+			id=sc.nextInt();
+			validate(id);
+			return id;
+		}
+		else
+		{
+			return id;
 		}
 	}
 }

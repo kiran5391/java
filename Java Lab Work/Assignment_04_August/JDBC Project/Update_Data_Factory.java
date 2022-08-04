@@ -1,5 +1,4 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -10,18 +9,15 @@ public class Update_Data_Factory
 	{
 		Scanner sc=new Scanner(System.in);
 		Scanner s=new Scanner(System.in);
-		String url="jdbc:mysql://localhost:3306/lab";
-		String driver="com.mysql.cj.jdbc.Driver";
-		String update_marks="update lab.Student set Marks=? where Student_id=? ;";
-		String update_fn="update lab.Student set First_Name=? where Student_id=?;";
-		String update_ln="update lab.Student set Last_Name=? where Student_id=?;";
-		String update_sub="update lab.Student set subject=? where Student_id=?;";
-		Connection con=null;
+		Util d=new Util();
+		Connection con= d.driverLoading();
+		String update_marks="update lab.Students set Marks=? where Student_id=? ;";
+		String update_fn="update lab.Students set First_Name=? where Student_id=?;";
+		String update_ln="update lab.Students set Last_Name=? where Student_id=?;";
+		String update_sub="update lab.Students set subject=? where Student_id=?;";
 		PreparedStatement pstmt=null;
 		try
 		{
-			Class.forName(driver);
-			con=DriverManager.getConnection(url,"root", "bahubali");
 			System.out.println("Enter Student's id whose data you want to update: ");
 			int id=s.nextInt();
 			System.out.println("Enter the data you want to update: ");
@@ -48,7 +44,7 @@ public class Update_Data_Factory
 			
 			System.out.println("Data Updated");
 		}
-		catch(ClassNotFoundException | SQLException e)
+		catch( SQLException e)
 		{
 			e.printStackTrace();
 		

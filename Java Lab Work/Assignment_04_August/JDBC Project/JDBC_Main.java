@@ -12,6 +12,7 @@ public class JDBC_Main {
 		System.out.println("3. Update Data");
 		System.out.println("4. Delete Data");
 		System.out.println("5. Fetch  Data");
+		System.out.println("Enter your Choice:  ");
 		int ch=sc.nextInt();
 		switch (ch)
 		{
@@ -34,6 +35,9 @@ public class JDBC_Main {
 			case 5: Data_Fetch f=new Data_Fetch();
 					f.fetching_Data();
 					break;	
+					
+			default: System.out.println("Invalid Input");
+					break;
 		}
 		}
 		catch(Exception e){}
