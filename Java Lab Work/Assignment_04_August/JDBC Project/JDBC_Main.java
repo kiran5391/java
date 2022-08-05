@@ -12,7 +12,8 @@ public class JDBC_Main {
 		System.out.println("3. Update Data");
 		System.out.println("4. Delete Data");
 		System.out.println("5. Fetch  Data");
-		System.out.println("Enter your Choice:  ");
+		System.out.println();
+		System.out.print("Enter your Choice:  ");
 		int ch=sc.nextInt();
 		switch (ch)
 		{

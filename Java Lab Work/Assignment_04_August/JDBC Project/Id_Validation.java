@@ -14,7 +14,7 @@ public class Id_Validation
 		Connection con= d.driverLoading();
 		String select="select * from lab.Students;";
 		PreparedStatement pstmt=null;
-		int i = 0;
+		int new_id = 0,count=0,i=0;
 		try
 		{
 			pstmt=con.prepareStatement(select);
@@ -22,8 +22,16 @@ public class Id_Validation
 			while(result.next())
 			{
 				int did=result.getInt(1);
-				i= val(sc, did, id);
-			}
+				if(id==did)
+				{
+					count++;
+					System.out.println("Please enter unique id: ");
+					new_id=sc.nextInt();
+					validate(new_id);
+					break;
+				}
+			}	
+			i=check(id, new_id, count);
 		}
 		catch( SQLException e)
 		{
@@ -41,24 +49,17 @@ public class Id_Validation
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			sc.close();
 			
 		}
-		return i;
+	return i;
 	}
-
-	public int val(Scanner sc, int did, int id) {
-		
-		if(id==did)
+	public int check(int id, int new_id, int count) {
+		if(count==0)
 		{
-			System.out.println("This id already exixts!!");
-			System.out.println("Please enter unique id: ");
-			id=sc.nextInt();
-			validate(id);
 			return id;
 		}
 		else
-		{
-			return id;
-		}
+		{return new_id;}
 	}
 }
